@@ -149,5 +149,6 @@ namespace hlsDownload
             }
             else this.TopMost = false;
         }
+
     }
 }

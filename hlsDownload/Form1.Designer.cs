@@ -52,11 +52,13 @@
             // richTextBox1
             // 
             this.richTextBox1.ContextMenuStrip = this.contextMenuStrip1;
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(12, 113);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(510, 246);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
+            this.richTextBox1.WordWrap = false;
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // contextMenuStrip1
@@ -140,11 +142,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(408, 411);
+            this.label2.Location = new System.Drawing.Point(393, 408);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 13);
+            this.label2.Size = new System.Drawing.Size(129, 13);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Made by Azuma#2781";
+            this.label2.Text = "Made by Thearesia#2781";
             // 
             // label3
             // 
@@ -165,11 +167,11 @@
             // btClear
             // 
             this.btClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btClear.Location = new System.Drawing.Point(144, 378);
+            this.btClear.Location = new System.Drawing.Point(151, 378);
             this.btClear.Name = "btClear";
             this.btClear.Size = new System.Drawing.Size(112, 43);
             this.btClear.TabIndex = 10;
-            this.btClear.Text = "Clear";
+            this.btClear.Text = "Clear all";
             this.btClear.UseVisualStyleBackColor = true;
             this.btClear.Click += new System.EventHandler(this.btClear_Click);
             // 
