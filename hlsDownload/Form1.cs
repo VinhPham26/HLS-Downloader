@@ -1,4 +1,5 @@
-﻿using System;
+﻿using hlsDownload.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -150,5 +151,9 @@ namespace hlsDownload
             else this.TopMost = false;
         }
 
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Settings.Default.Save();
+        }
     }
 }

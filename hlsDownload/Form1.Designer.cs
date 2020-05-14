@@ -34,7 +34,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tbFolder = new System.Windows.Forms.TextBox();
             this.btDownload = new System.Windows.Forms.Button();
             this.selectFolder = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@
             this.btClear = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.tbFolder = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
@@ -82,14 +82,6 @@
             this.clearToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.clearToolStripMenuItem.Text = "Clear";
             this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
-            // 
-            // tbFolder
-            // 
-            this.tbFolder.Location = new System.Drawing.Point(112, 12);
-            this.tbFolder.Name = "tbFolder";
-            this.tbFolder.Size = new System.Drawing.Size(410, 20);
-            this.tbFolder.TabIndex = 1;
-            this.tbFolder.Text = "E:\\Download";
             // 
             // btDownload
             // 
@@ -196,6 +188,15 @@
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
+            // tbFolder
+            // 
+            this.tbFolder.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::hlsDownload.Properties.Settings.Default, "dlFolder", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.tbFolder.Location = new System.Drawing.Point(112, 12);
+            this.tbFolder.Name = "tbFolder";
+            this.tbFolder.Size = new System.Drawing.Size(410, 20);
+            this.tbFolder.TabIndex = 1;
+            this.tbFolder.Text = global::hlsDownload.Properties.Settings.Default.dlFolder;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,6 +217,7 @@
             this.Name = "Form1";
             this.Text = "HLS Video Downloader";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
