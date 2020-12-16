@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace hlsDownload
 {
@@ -23,20 +24,22 @@ namespace hlsDownload
             AddClipboardFormatListener(this.Handle);
         }
 
-        public void ExecuteCmd(string link, int output)
+        public void ExecuteCmd(string link, int output, bool check)
         {
             string saveFolder = tbFolder.Text;
             string name = tbName.Text;
             string command = "";
             if (name == "")
             {
-                command = $"/c ffmpeg -i {link} -c copy -bsf:a aac_adtstoasc {saveFolder}/{output}.mp4";
+                command = $"/c ffmpeg -v warning -stats -i {link} -c copy -bsf:a aac_adtstoasc {saveFolder}/{output}.mp4";
             }
             else
             {
-                command = $"/c ffmpeg -i {link} -c copy -bsf:a aac_adtstoasc {saveFolder}/\"{name} - {output}\".mp4";
+                command = $"/c ffmpeg -v warning -stats -i {link} -c copy -bsf:a aac_adtstoasc {saveFolder}/\"{name} - {output}\".mp4";
             }
-            System.Diagnostics.Process.Start("CMD.exe", command);
+            var process = Process.Start("CMD.exe", command);
+            if (check)
+                process.WaitForExit();
             return;
         }
 
@@ -62,7 +65,10 @@ namespace hlsDownload
             var lines = richTextBox1.Text.Split('\n').ToList();
             foreach (var line in lines)
             {
-                ExecuteCmd(line, i);
+                if (checkBox3.Checked)
+                    ExecuteCmd(line, i, true);
+                else
+                    ExecuteCmd(line, i, false);
                 i++;
             }
         }
